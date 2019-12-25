@@ -36,7 +36,7 @@ window.addEventListener('DOMContentLoaded', function() {
 
     //Timer
     
-    let deadLine = '2019-12-23';
+    let deadLine = '2019-12-26';
 
     function getTimeRemaining(endTime) {
         let time = Date.parse(endTime) - Date.parse(new Date()),
@@ -87,4 +87,28 @@ window.addEventListener('DOMContentLoaded', function() {
     }
 
     setClock('timer', deadLine);
+
+    
+// Modal
+
+    let more = document.querySelectorAll('.description-btn, .more'), // для кнопок с классом description-btn и more 
+    overlay =  document.querySelector('.overlay');
+
+    more.forEach(function(item){
+        item.addEventListener('click', function(){
+            overlay.style.display = 'block';
+            this.classList.add('more-splash');
+            document.body.style.overflow = 'hidden'; // что бы body  не прокручиволось, когда активно всплывающее модальное окно.
+        });
+        document.querySelector('.popup-close').addEventListener('click', function(){
+            overlay.style.display = 'none';
+            this.classList.remove('more-splash');
+            document.body.style.overflow = 'scroll'; //или document.body.style.overflow = '';
+        });
+
+    });
+
+    
 });
+
+

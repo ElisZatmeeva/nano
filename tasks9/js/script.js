@@ -88,3 +88,4 @@ window.addEventListener('DOMContentLoaded', function() {
 
     setClock('timer', deadLine);
 });
+
